@@ -1,0 +1,145 @@
+doctype html
+html
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+    link#colors(rel='stylesheet', href='/css/colors/main.css')
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    script(src='/javascripts/bootstrap.min.js')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.min.js')
+    script(src='/javascripts/angular.min.js')
+  body
+    #wrapper
+      header#header-container
+        #top-bar
+          .container
+            .left-side
+              ul.top-bar-menu
+                li
+                  i.fa.fa-phone
+                  |  (123) 123-456
+                li
+                  i.fa.fa-envelope
+                  a(href='#') vrlgarg@gmail.com
+            .right-side(style='margin-top:3px;')
+              ul.right-side
+                a.facebook1(href='https://www.facebook.com/labelmraar/', target='_blank')
+                  li.fa.fa-facebook-official(style='font-size:24px')
+                a.facebook1(href='https://www.facebook.com/labelmraar/', target='_blank')
+                  li.fa.fa-google-plus-official(style='font-size:24px')
+                a.facebook1(href='https://www.facebook.com/labelmraar/', target='_blank')
+                  li.fa.fa-twitter-square(style='font-size:24px')
+                a.facebook1(href='https://www.facebook.com/labelmraar/', target='_blank')
+                  li.fa.fa-instagram(style='font-size:24px')
+        .clearfix
+        #header
+          .container
+            .left-side
+              #logo
+                a(href='/')
+                  h3 PROPERTYBOWL
+              .menu-responsive
+                i.fa.fa-reorder.menu-trigger
+              nav#navigation.style-1
+                ul#responsive
+                  li
+                    a.current(href='/') Home
+                  li
+                    a(href='listings-list.html') Listings
+                  li
+                    a(href='#') Features
+                    ul
+                      li
+                        a(href='#') My Account
+                        ul
+                          li
+                            a(href='my-profile.html') My Profile
+                          li
+                            a(href='my-properties.html') My Properties
+                          li
+                            a(href='change-password.html') Change Password
+                      li
+                        a(href='#') Agents
+                        ul
+                          li
+                            a(href='agents-list.html') Agents List
+                          li
+                            a(href='agent-page.html') Agent Page
+                      li
+                        a(href='/submit-property') Submit Property
+              .clearfix
+            .right-side
+              .header-widget
+                a.sign-in(href='login-register.html')
+                  i.fa.fa-user
+                  |  Log In / Register
+                a.button.border(href='/submit-property') Submit Property
+      .clearfix
+      block content
+      #footer.sticky-footer
+          // Main
+          .container
+            .row
+              .col-md-5.col-sm-6
+                img.footer-logo(src='images/logo.png', alt='')
+                h3 About Company
+                p
+                  | We are India's Smartest offline advertisement aggregator and manager.We help them by providing Ad site. We providing Multiple options for advertising based on thier requirements of pricing, location, nature of advertising and spacing.Plus we help to eliminate Agents, so you get best possible deal for both parties.
+              .col-md-4.col-sm-6
+                h4 Helpful Links
+                ul.footer-links
+                  li
+                    a(href='#') Login
+                  li
+                    a(href='#') Sign Up
+                  li
+                    a(href='#') My Account
+                  li
+                    a(href='#') Add Property
+                  li
+                    a(href='#') Privacy Policy
+                ul.footer-links
+                  li
+                    a(href='#') FAQ
+                  li
+                    a(href='#') Blog
+                  li
+                    a(href='#') Our Agents
+                  li
+                    a(href='#') How It Works
+                  li
+                    a(href='#') Contact
+                .clearfix
+              .col-md-3.col-sm-12
+                h4 Contact Us
+                .text-widget
+                  span 12345, Dlf phase-1, Gurugram
+                  br
+                  | 					Phone: 
+                  span (123) 123-456 
+                  br
+                  | 					E-Mail:
+                  span
+                    a(href='#') vrlgarg@gmail.com
+                    br
+                ul.social-icons.margin-top-20
+                  li
+                    a.facebook(href='#')
+                      i.icon-facebook
+                  li
+                    a.twitter(href='#')
+                      i.icon-twitter
+                  li
+                    a.gplus(href='#')
+                      i.icon-gplus
+                  li
+                    a.vimeo(href='#')
+                      i.icon-vimeo
+            .row
+              .col-md-12
+                .copyrights © 2017 PropertyBowl. All Rights Reserved.

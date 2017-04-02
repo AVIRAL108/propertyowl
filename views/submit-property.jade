@@ -1,0 +1,63 @@
+extends layout
+
+block content
+      #titlebar.submit-page
+        .container
+          .row
+            .col-md-12
+              h2
+                i.fa.fa-plus-circle
+                |  Add Property
+      //
+        Content
+        ==================================================
+      .container
+        .row
+          // Submit Page
+          .col-md-12
+            .submit-page
+              .notification.notice.large.margin-bottom-55
+                h4 Don't Have an Account?
+                p
+                  | If you don't have an account you can create one by entering your email address in contact details section. A password will be automatically emailed to you.
+              // Section
+              div(ng-app='mypropertysubmit', ng-controller='submitCtrl')
+               form(ng-submit='submit_form()')
+                 select(ng-model='Property.type')
+                   option(value='Open') Open
+                   option(value='Closed') Closed
+                 select(ng-model='Property.ownership_type')
+                   option(value='Sole Owner') Sole Owner
+                   option(value='Partnership') Partnership
+                   option(value='Agent') Agent
+                 input(type='number', value='0', name='price', ng-model='Property.price')
+                 select(ng-model='Property.price_type')
+                   option(value='Daily') Daily
+                   option(value='Weekly') Weekly
+                 input(type='number', value='0', name='Area', ng-model='Property.area')
+                 select(ng-model='Property.area_unit')
+                   option(value='Daily') Sq Ft.
+                   option(value='Weekly') Sq m.
+                 input(type='text', name='Address', ng-model='Property.contact_details.address')
+                 input(type='text', name='City', ng-model='Property.contact_details.city')
+                 input(type='text', name='state', ng-model='Property.contact_details.state')
+                 input(type='number', value='000000', name='zipcode', ng-model='Property.contact_details.zipcode')
+                 input(type='text', value='000000', name='googlelocation', ng-model='Property.contact_details.googlelocation')
+                 input(type='textbox', name='description', ng-model='Property.description')
+                 input(type='checkbox', value='Audience', ng-model='Property.other_features.audience')
+                 input(type='checkbox', value='Display Units', ng-model='Property.other_features.du')
+                 input(type='checkbox', value='Sound Units', ng-model='Property.other_features.su')
+                 input(type='checkbox', value='Furnishing', ng-model='Property.other_features.f')
+                 input(type='checkbox', value='Air Conditioning', ng-model='Property.other_features.ac')
+                 input(type='text', name='name', ng-model='Property.contact_details.name')
+                 input(type='email', name='email', ng-model='Property.contact_details.email')
+                 input(type='phone', name='phone', ng-model='Property.contact_details.phone')
+                 input(type='checkbox', value='ATM', ng-model='Property.type_of_advertisement.atm')
+                 input(type='checkbox', value='Mobile/Communication Tower', ng-model='Property.type_of_advertisement.mct')
+                 input(type='checkbox', value='Banner/Poster', ng-model='Property.type_of_advertisemen.bpt')
+                 input(type='checkbox', value='Hoarding Board', ng-model='Property.type_of_advertisement.hb')
+                 input(type='checkbox', value='Stalls', ng-model='Property.type_of_advertisement.st')
+                 input(type='checkbox', value='Digital Offine Advertising', ng-model='Property.type_of_advertisement.doa')
+                 input(type='checkbox', value='Area for Display', ng-model='Property.type_of_advertisement.afd')
+                 input(type='submit', value='Submit')
+                 script(src='/javascripts/listing_angular_post.js')
