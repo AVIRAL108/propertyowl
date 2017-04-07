@@ -1,63 +1,127 @@
 extends layout
 
 block content
-      #titlebar.submit-page
-        .container
-          .row
-            .col-md-12
-              h2
-                i.fa.fa-plus-circle
-                |  Add Property
-      //
-        Content
-        ==================================================
-      .container
-        .row
-          // Submit Page
-          .col-md-12
-            .submit-page
-              .notification.notice.large.margin-bottom-55
-                h4 Don't Have an Account?
-                p
-                  | If you don't have an account you can create one by entering your email address in contact details section. A password will be automatically emailed to you.
-              // Section
-              div(ng-app='mypropertysubmit', ng-controller='submitCtrl')
-               form(ng-submit='submit_form()')
-                 select(ng-model='Property.type')
-                   option(value='Open') Open
-                   option(value='Closed') Closed
-                 select(ng-model='Property.ownership_type')
-                   option(value='Sole Owner') Sole Owner
-                   option(value='Partnership') Partnership
-                   option(value='Agent') Agent
-                 input(type='number', value='0', name='price', ng-model='Property.price')
-                 select(ng-model='Property.price_type')
-                   option(value='Daily') Daily
-                   option(value='Weekly') Weekly
-                 input(type='number', value='0', name='Area', ng-model='Property.area')
-                 select(ng-model='Property.area_unit')
-                   option(value='Daily') Sq Ft.
-                   option(value='Weekly') Sq m.
-                 input(type='text', name='Address', ng-model='Property.contact_details.address')
-                 input(type='text', name='City', ng-model='Property.contact_details.city')
-                 input(type='text', name='state', ng-model='Property.contact_details.state')
-                 input(type='number', value='000000', name='zipcode', ng-model='Property.contact_details.zipcode')
-                 input(type='text', value='000000', name='googlelocation', ng-model='Property.contact_details.googlelocation')
-                 input(type='textbox', name='description', ng-model='Property.description')
-                 input(type='checkbox', value='Audience', ng-model='Property.other_features.audience')
-                 input(type='checkbox', value='Display Units', ng-model='Property.other_features.du')
-                 input(type='checkbox', value='Sound Units', ng-model='Property.other_features.su')
-                 input(type='checkbox', value='Furnishing', ng-model='Property.other_features.f')
-                 input(type='checkbox', value='Air Conditioning', ng-model='Property.other_features.ac')
-                 input(type='text', name='name', ng-model='Property.contact_details.name')
-                 input(type='email', name='email', ng-model='Property.contact_details.email')
-                 input(type='phone', name='phone', ng-model='Property.contact_details.phone')
-                 input(type='checkbox', value='ATM', ng-model='Property.type_of_advertisement.atm')
-                 input(type='checkbox', value='Mobile/Communication Tower', ng-model='Property.type_of_advertisement.mct')
-                 input(type='checkbox', value='Banner/Poster', ng-model='Property.type_of_advertisemen.bpt')
-                 input(type='checkbox', value='Hoarding Board', ng-model='Property.type_of_advertisement.hb')
-                 input(type='checkbox', value='Stalls', ng-model='Property.type_of_advertisement.st')
-                 input(type='checkbox', value='Digital Offine Advertising', ng-model='Property.type_of_advertisement.doa')
-                 input(type='checkbox', value='Area for Display', ng-model='Property.type_of_advertisement.afd')
-                 input(type='submit', value='Submit')
-                 script(src='/javascripts/listing_angular_post.js')
+ .container(ng-app='mypropertysubmit', ng-controller='submitCtrl')
+        form.form-horizontal(ng-submit='submit_form()', action='/')
+          h3 Basic Information
+          hr
+          .form-group
+            label.control-label.col-sm-2(for='t_o_p') Type of Property*
+            .col-sm-10
+              select#t_o_p.form-control(ng-model='type', required='required')
+                option Open
+                option Closed
+          .form-group
+            label.control-label.col-sm-2(for='o_t') Ownership Type
+            .col-sm-10
+              select#o_t.form-control(ng-model='ownership_type', required='required')
+                option Sole Owner
+                option Partnership
+                option Agent
+          .form-group
+            label.control-label.col-sm-2(for='price') Price
+            .col-sm-10
+              input#price.form-control(type='text', ng-model='price', required='required')
+          .form-group
+            label.control-label.col-sm-2(for='price_type') Price Type
+            .col-sm-10
+              select#price_type.form-control(ng-model='price_type', required='required')
+                option Daily
+                option Weekly
+          .form-group
+            label.control-label.col-sm-2(for='area') Area
+            .col-sm-10
+              input#area.form-control(type='text', ng-model='area', required='required')
+          .form-group
+            label.control-label.col-sm-2(for='area_unit') Area Unit
+            .col-sm-10
+              select#area_unit.form-control(ng-model='area_unit', required='required')
+                option Sq. m.
+                option Sq. ft.
+          h3 Location Details
+          hr
+          .form-group
+            label.control-label.col-sm-2(for='address') Address
+            .col-sm-10
+              input#address.form-control(type='text', ng-model='full_address.address', required='required')
+          .form-group
+            label.control-label.col-sm-2(for='state') State
+            .col-sm-10
+              input#state.form-control(type='text', ng-model='full_address.state', required='required')
+          .form-group
+            label.control-label.col-sm-2(for='city') City
+            .col-sm-10
+              input#city.form-control(type='text', ng-model='full_address.city', required='required')
+          .form-group
+            label.control-label.col-sm-2(for='zipcode') Zipcode
+            .col-sm-10
+              input#zipcode.form-control(type='text', ng-model='full_address.zipcode', required='required')
+          .form-group
+            label.control-label.col-sm-2(for='g_l') Google Location
+            .col-sm-10
+              input#g_l.form-control(type='text', ng-model='full_address.googlelocation', required='required')
+          h3 Detailed Information
+          hr
+          .form-group
+            label.control-label.col-sm-2(for='description') Desciprtion
+            .col-sm-10
+              textarea#description.form-control(rows='5', ng-model='description', required='required')
+          .form-group
+            label.control-label.col-sm-2(for='description', ng-model='other_features', required='required') Other Features
+            .col-sm-10
+              label.checkbox-inline
+                input(type='checkbox', value='Audience', ng-model='other_features')
+                | Audience
+              label.checkbox-inline
+                input(type='checkbox', value='Display Units', ng-model='other_features')
+                | Display Units
+              label.checkbox-inline
+                input(type='checkbox', value='Sound Units', ng-model='other_features')
+                | Sound Units
+              label.checkbox-inline
+                input(type='checkbox', value='Furnishing', ng-model='other_features')
+                | Furnishing
+              label.checkbox-inline
+                input(type='checkbox', value='Air Conditioning', ng-model='other_features')
+                | Air Conditioning
+          h3 Contact Deials
+          .form-group
+            label.control-label.col-sm-2(for='name') Name
+            .col-sm-10
+              input#name.form-control(type='text', placeholder='Enter the name of contact person', ng-model='contact_details.name' , required='required')
+          .form-group
+            label.control-label.col-sm-2(for='email') Email:
+            .col-sm-10
+              input#email.form-control(type='email', placeholder='Enter email of contact person', ng-model='contact_details.email', required='required')
+          .form-group
+            label.control-label.col-sm-2(for='phone') Phone Number
+            .col-sm-10
+              input#phone.form-control(type='text', placeholder='Enter phone no. of contact person', ng-model='contact_details.phone', required='required')
+          h3 Type of Advertisement
+          .form-group
+            .col-sm-offset-2.col-sm-10
+              label.checkbox-inline
+                input(type='checkbox', value='ATM', ng-model='type_of_advertisement')
+                | ATM
+              label.checkbox-inline
+                input(type='checkbox', value='Mobile/Communication Tower', ng-model='type_of_advertisement')
+                | Mobile/Communication Tower
+              label.checkbox-inline
+                input(type='checkbox', value='Banner/Poster', ng-model='type_of_advertisement')
+                | Banner/Poster
+              label.checkbox-inline
+                input(type='checkbox', value='Hoarding Board', ng-model='type_of_advertisement')
+                | Hoarding Board
+              label.checkbox-inline
+                input(type='checkbox', value='Stalls', ng-model='type_of_advertisement')
+                | Stalls
+              label.checkbox-inline
+                input(type='checkbox', value='Digital Offline Marketing', ng-model='type_of_advertisement')
+                | Digital Offline Marketing
+              label.checkbox-inline
+                input(type='checkbox', value='Area for Product Display', ng-model='type_of_advertisement')
+                | Area for Product Display
+          .form-group
+            .col-sm-offset-2.col-sm-10
+              button.btn.btn-default(type='submit') Submit
+      script(src='/javascripts/listing_angular_post.js')
