@@ -1,15 +1,16 @@
 extends layout
 
 block content   
-    div(ng-app='myApp', ng-controller='customersCtrl')
+    div(ng-app='myApp', ng-controller='customersCtrl', class='makers')
       ul
-        li(ng-repeat='x in myData')
+        li(ng-repeat='x in myData', class='showcase')
           | {{ x.type }}
           {{x.ownership_type}}
-          {{x.price+" "+x.price_type}}
-          {{x.area+ " "+x.area_unit }}
+          h3(class='bolding'){{x.price+" "+x.price_type}}
+          p(class='arena'){{x.area+ " "+x.area_unit }}
           {{x.full_address.city + " " + x.full_address.zipcode}}
           {{x.type_of_advertisement}}
+          {{x.contact_details.name+ " " + x.contact_details.email + " " + x.contact_details.phone}}
       
     script(src='/javascripts/listing_angular.js')
      

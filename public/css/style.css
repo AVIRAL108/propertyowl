@@ -84,3 +84,13 @@ color:#ffffff;
 .htz{
 	color:#66676b;
 }
+ul .showcase{
+	display: block;
+	padding: 2px;
+	box-shadow:0px 0px 3px 2px #808080;
+	width:400px;
+
+}
+ul li{
+	list-style: none;
+}

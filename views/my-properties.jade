@@ -1,0 +1,94 @@
+extends layout
+
+block content
+      #titlebar
+        .container
+          .row
+            .col-md-12
+              h2 My Properties
+              nav#breadcrumbs
+                ul
+                  li
+                    a(href='#') Home
+                  li My Properties
+      .container
+        .row
+          .col-md-4
+            .sidebar.left
+              .my-account-nav-container
+                ul.my-account-nav
+                  li.sub-nav-title Manage Account
+                  li
+                    a(href='/my-profile')
+                      i.sl.sl-icon-user
+                      |  My Profile
+                ul.my-account-nav
+                  li.sub-nav-title Manage Listings
+                  li
+                    a.current(href='/my-properties')
+                      i.sl.sl-icon-docs
+                      |  My Properties
+                  li
+                    a(href='/submit-property')
+                      i.sl.sl-icon-action-redo
+                      |  Submit New Property
+                ul.my-account-nav
+                  li
+                    a(href='/change-password')
+                      i.sl.sl-icon-lock
+                      |  Change Password
+                  li
+                    a(href='#')
+                      i.sl.sl-icon-power
+                      |  Log Out
+          .col-md-8
+            table.manage-table.responsive-table
+              tr
+                th
+                  i.fa.fa-file-text
+                  |  Property
+                th.expire-date
+                  i.fa.fa-calendar
+                  |  Expiration Date
+                th
+              // Item #1
+              tr
+                td.title-container
+                  img(src='images/listing-02.jpg', alt='')
+                  .title
+                    h4
+                      a(href='#') Serene Uptown
+                    span 6 Bishop Ave. New Delhi 
+                    span.table-property-price 9000 / monthly
+                td.expire-date December 30, 2016
+                td.action
+                  a(href='#')
+                    i.fa.fa-pencil
+                    |  Edit
+                  a(href='#')
+                    i.fa.fa-eye-slash
+                    |  Hide
+                  a.delete(href='#')
+                    i.fa.fa-remove
+                    |  Delete
+              // Item #2
+              tr
+                td.title-container
+                  img(src='images/listing-05.jpg', alt='')
+                  .title
+                    h4
+                      a(href='#') Oak Tree Villas
+                    span 71 Lower River rd, Bhopal
+                    span.table-property-price $535,000
+                td.expire-date December 12, 2016
+                td.action
+                  a(href='#')
+                    i.fa.fa-pencil
+                    |  Edit
+                  a(href='#')
+                    i.fa.fa-eye-slash
+                    |  Hide
+                  a.delete(href='#')
+                    i.fa.fa-remove
+                    |  Delete
+            a.margin-top-40.button(href='submit-property.html') Submit New Property

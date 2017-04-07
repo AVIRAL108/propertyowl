@@ -1,0 +1,92 @@
+extends layout
+
+block content
+      #titlebar
+        .container
+          .row
+            .col-md-12
+              h2 My Profile
+              nav#breadcrumbs
+                ul
+                  li
+                    a(href='#') Home
+                  li My Profile
+      .container
+        .row
+          .col-md-4
+            .sidebar.left
+              .my-account-nav-container
+                ul.my-account-nav
+                  li.sub-nav-title Manage Account
+                  li
+                    a.current(href='/my-profile')
+                      i.sl.sl-icon-user
+                      |  My Profile
+                ul.my-account-nav
+                  li.sub-nav-title Manage Listings
+                  li
+                    a(href='/my-properties')
+                      i.sl.sl-icon-docs
+                      |  My Properties
+                  li
+                    a(href='/submit-property.html')
+                      i.sl.sl-icon-action-redo
+                      |  Submit New Property
+                ul.my-account-nav
+                  li
+                    a(href='/change-password')
+                      i.sl.sl-icon-lock
+                      |  Change Password
+                  li
+                    a(href='#')
+                      i.sl.sl-icon-power
+                      |  Log Out
+          .col-md-8
+            .row
+              .col-md-8.my-profile
+                h4.margin-top-0.margin-bottom-30 My Account
+                form.form-horizontal
+                  .form-group
+                    label.control-label.col-sm-2(for='name') Name:
+                    .col-sm-10
+                      input#name.form-control(type='email', placeholder='Enter your Name')
+                  .form-group
+                    label.control-label.col-sm-2(for='yt') Title:
+                    .col-sm-10
+                      select#yt.form-control
+                        option Owner
+                        option Advertizer
+                        option Agent
+                  .form-group
+                    label.control-label.col-sm-2(for='phone') Phone:
+                    .col-sm-10
+                      input#phone.form-control(type='mobile', placeholder='Enter your digit mobile no.')
+                  .form-group
+                    label.control-label.col-sm-2(for='email') Email:
+                    .col-sm-10
+                      input#email.form-control(type='email', placeholder='Enter your Email')
+                  .form-group
+                    label(for='aboutme') About Me:
+                    textarea#aboutme.form-control(rows='5')
+                  h4.margin-top-50.margin-bottom-0 Social
+                  .form-group
+                    label.fa.fa-facebook-square(for='facebook')
+                    .col-sm-10
+                      input#facebook.form-control(type='text', placeholder='Enter your facebook profile link')
+                  .form-group
+                    label.fa.fa-google-plus(for='google')
+                    .col-sm-10
+                      input#google.form-control(type='text', placeholder='Enter your google plus profile link')
+                  .form-group
+                    .col-sm-offset-2.col-sm-10
+                      button.button.margin-top-20.margin-bottom-20(type='submit') Submit
+              .col-md-4
+                // Avatar
+                .edit-profile-photo
+                  img(src='images/agent-02.jpg', alt='')
+                  .change-photo-btn
+                    .photoUpload
+                      span
+                        i.fa.fa-upload
+                        |  Upload Photo
+                      input.upload(type='file')

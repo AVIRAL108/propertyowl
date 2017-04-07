@@ -13,6 +13,7 @@ html
     script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.min.js')
     script(src='/javascripts/angular.min.js')
+    script(src='/javascript/rangeslider.js')
   body
     #wrapper
       header#header-container
@@ -42,7 +43,7 @@ html
             .left-side
               #logo
                 a(href='/')
-                  h3 PROPERTYBOWL
+                  h3 ADSBOWL
               .menu-responsive
                 i.fa.fa-reorder.menu-trigger
               nav#navigation.style-1
@@ -50,7 +51,7 @@ html
                   li
                     a.current(href='/') Home
                   li
-                    a(href='listings-list.html') Listings
+                    a(href='/listings-list') Listings
                   li
                     a(href='#') Features
                     ul
@@ -58,24 +59,24 @@ html
                         a(href='#') My Account
                         ul
                           li
-                            a(href='my-profile.html') My Profile
+                            a(href='/my-profile') My Profile
                           li
-                            a(href='my-properties.html') My Properties
+                            a(href='/my-properties') My Properties
                           li
-                            a(href='change-password.html') Change Password
+                            a(href='/change-password') Change Password
                       li
                         a(href='#') Agents
                         ul
                           li
-                            a(href='agents-list.html') Agents List
+                            a(href='/agents-list') Agents List
                           li
-                            a(href='agent-page.html') Agent Page
+                            a(href='/agents-page') Agent Page
                       li
                         a(href='/submit-property') Submit Property
               .clearfix
             .right-side
               .header-widget
-                a.sign-in(href='login-register.html')
+                a.sign-in(href='/login-register')
                   i.fa.fa-user
                   |  Log In / Register
                 a.button.border(href='/submit-property') Submit Property
@@ -142,4 +143,4 @@ html
                       i.icon-vimeo
             .row
               .col-md-12
-                .copyrights © 2017 PropertyBowl. All Rights Reserved.
+                .copyrights © 2017 AdsBowl. All Rights Reserved.

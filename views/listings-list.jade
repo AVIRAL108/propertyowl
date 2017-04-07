@@ -1,0 +1,128 @@
+extends layout
+
+block content
+      #titlebar
+          .container
+            .row
+              .col-md-12
+                h2 Listings
+                span Grid Layout With Sidebar
+                // Breadcrumbs
+                nav#breadcrumbs
+                  ul
+                    li
+                      a(href='#') Home
+                    li Listings
+      //
+        Content
+        ==================================================
+      .container
+        .row.sticky-wrapper
+          .col-md-8
+            // Main Search Input
+            .main-search-input.margin-bottom-35
+              input.ico-01(type='text', placeholder='Enter address e.g. street, city and state or zip', value='')
+              button.button Search
+            // Sorting / Layout Switcher
+            .row.margin-bottom-15
+              .col-md-6
+                // Sort by
+                .sort-by
+                  label Sort by:
+                  .sort-by-select
+                    select.chosen-select-no-single(data-placeholder='Default order')
+                      option Default Order
+                      option Price Low to High
+                      option Price High to Low
+                      option Newest Properties
+                      option Oldest Properties
+              .col-md-6
+                // Layout Switcher
+                .layout-switcher
+                  a.list(href='#')
+                    i.fa.fa-th-list
+                  a.grid(href='#')
+                    i.fa.fa-th-large
+            .listings-container.list-layout
+              // Listing Item
+              .listing-item(ng-app='myApp', ng-controller='customersCtrl')
+                ul
+                  li(ng-repeat='x in myData | filter : test')
+                     {{x.price+" "+ x.price_type}}
+                     {{x.area+" "+x.area_unit}}
+                              
+              script(src='/javascripts/listing_angular.js')
+          
+            // Pagination
+            .pagination-container.margin-top-20
+              br
+              br
+              nav.pagination
+                ul
+                  li
+                    a.current-page(href='#') 1
+                  li
+                    a(href='#') 2
+                  li
+                    a(href='#') 3
+                  li.blank ...
+                  li
+                    a(href='#') 22
+              nav.pagination-next-prev
+                ul
+                  li
+                    a.prev(href='#') Previous
+                  li
+                    a.next(href='#') Next
+            // Pagination / End
+          //
+            Sidebar
+            ==================================================
+          .col-md-4
+            .sidebar.sticky.right
+              // Widget
+              .widget.margin-bottom-40
+                h3.margin-top-0.margin-bottom-35 Find New Site
+                .row.with-forms
+                  .col-md-12
+                    select.chosen-select-no-single
+                      option(label='Any type')
+                      option Open
+                      option Semiclosed
+                      option Closed
+                // Row / End
+                // Row
+                .row.with-forms
+                  // States
+                  .col-md-12
+                    select.chosen-select(data-placeholder='All States')
+                      option All States
+                      option New Delhi
+                      option Maharastra
+                      option West Bengal
+                      option Rajisthan
+                      option Uttarpradesh
+                // Row / End
+                // Row
+                .row.with-forms
+                  // Cities
+                  .col-md-12
+                    select.chosen-select(data-placeholder='All Cities')
+                      option All Cities
+                      option New Delhi
+                      option Noida
+                      option Gurgaon
+                      option Jaipur
+                      option Chennai
+                      option Kolkata
+                br
+                // Area Range
+                label Price Range
+                input(type='range', min='10', max='7000', step='10', value='300', data-orientation='vertical', ng-model='test')
+                br
+                // Price Range
+                .range-slider
+                  label Area Range
+                   input(type='range', min='10', max='1000', step='10', value='300', data-orientation='vertical')
+                  .clearfix
+                button.button.fullwidth.margin-top-30 Search

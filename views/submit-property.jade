@@ -2,7 +2,7 @@ extends layout
 
 block content
  .container(ng-app='mypropertysubmit', ng-controller='submitCtrl')
-        form.form-horizontal(ng-submit='submit_form()', action='/')
+        form.form-horizontal(ng-submit='submit_form()', action='/listings-list', method='post')
           h3 Basic Information
           hr
           .form-group
