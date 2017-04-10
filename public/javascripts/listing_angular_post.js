@@ -1,5 +1,36 @@
 var app = angular.module('mypropertysubmit', []);
 app.controller('submitCtrl', ['$scope', '$http', function ($scope, $http) {
+$scope.type_of_advertisement = [
+ {
+  	value: "ATM"
+  },
+  {
+    value: "Mobile/Communication Tower"
+  }, {
+    value: "Banner/Poster"
+  }, {
+    value: "Hoarding Board"
+  }, {
+    value: "Stalls"
+  },
+  {
+    value: "Digital Offline Advertising"
+  }
+];
+$scope.other_features = [
+ {
+  	value: "Audience"
+  },
+  {
+    value: "Sound Units"
+  }, {
+    value: "Display Units"
+  }, {
+    value: "Furninshing"
+  }, {
+    value: "Air Conditiong"
+  }
+  ];
 	$scope.Property = [{
 	"data":	{"type":"Open",
 	"ownership_type":"Agent",
@@ -21,6 +52,14 @@ app.controller('submitCtrl', ['$scope', '$http', function ($scope, $http) {
 }}];
 
 	$scope.submit_form = function(){
+    $scope.selectedRows=$scope.type_of_advertisement.reduce(function(arr, val) {
+    	if(val.selected) arr.push(val.value)
+      return arr
+    }, []);
+     $scope.selectedRows1=$scope.other_features.reduce(function(arr, val) {
+    	if(val.selected) arr.push(val.value)
+      return arr
+    }, []);
 		$scope.Property.push({ 
 			'data':{
 			'type':$scope.type,
@@ -37,10 +76,10 @@ app.controller('submitCtrl', ['$scope', '$http', function ($scope, $http) {
 		'google_location':$scope.full_address.google_location
 	},
 	'description':$scope.description,
-	'other_features':[$scope.other_features],
+	'other_features':$scope.selectedRows1,
 	'contact_details':{'name':$scope.contact_details.name,'email':$scope.contact_details.email,'phone':$scope.contact_details.phone},
-	'type_of_advertisement':[$scope.type_of_advertisement]
-		}});
+	'type_of_advertisement':$scope.selectedRows
+			}});
 
 	
 	var dataObj = { 
@@ -59,10 +98,11 @@ app.controller('submitCtrl', ['$scope', '$http', function ($scope, $http) {
 		google_location:$scope.full_address.google_location
 	},
 	description:$scope.description,
-	other_features:[$scope.other_features],
+	other_features:$scope.selectedRows1,
 	contact_details:{name:$scope.contact_details.name,email:$scope.contact_details.email,phone:$scope.contact_details.phone},
-	type_of_advertisement:[$scope.type_of_advertisement]
+	type_of_advertisement:$scope.selectedRows
 		}};
+
 		var res = $http.post('/api/submit-property', dataObj);
 		res.success(function(data, status, headers, config) {
 			$scope.message = data;

@@ -1,21 +1,7 @@
 extends layout
 
 block content
-      #titlebar
-          .container
-            .row
-              .col-md-12
-                h2 Listings
-                span Grid Layout With Sidebar
-                // Breadcrumbs
-                nav#breadcrumbs
-                  ul
-                    li
-                      a(href='#') Home
-                    li Listings
-      //
-        Content
-        ==================================================
+      br
       .container
         .row.sticky-wrapper
           .col-md-8
@@ -50,7 +36,7 @@ block content
                   li(ng-repeat='x in myData | filter : test')
                      {{x.price+" "+ x.price_type}}
                      {{x.area+" "+x.area_unit}}
-                              
+                     {{x.full_address.city+  "  "+ x.full_address.state}}
               script(src='/javascripts/listing_angular.js')
           
             // Pagination
@@ -88,12 +74,8 @@ block content
                     select.chosen-select-no-single
                       option(label='Any type')
                       option Open
-                      option Semiclosed
                       option Closed
-                // Row / End
-                // Row
                 .row.with-forms
-                  // States
                   .col-md-12
                     select.chosen-select(data-placeholder='All States')
                       option All States
@@ -102,8 +84,6 @@ block content
                       option West Bengal
                       option Rajisthan
                       option Uttarpradesh
-                // Row / End
-                // Row
                 .row.with-forms
                   // Cities
                   .col-md-12

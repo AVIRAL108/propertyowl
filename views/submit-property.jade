@@ -70,20 +70,10 @@ block content
             label.control-label.col-sm-2(for='description', ng-model='other_features', required='required') Other Features
             .col-sm-10
               label.checkbox-inline
-                input(type='checkbox', value='Audience', ng-model='other_features')
-                | Audience
-              label.checkbox-inline
-                input(type='checkbox', value='Display Units', ng-model='other_features')
-                | Display Units
-              label.checkbox-inline
-                input(type='checkbox', value='Sound Units', ng-model='other_features')
-                | Sound Units
-              label.checkbox-inline
-                input(type='checkbox', value='Furnishing', ng-model='other_features')
-                | Furnishing
-              label.checkbox-inline
-                input(type='checkbox', value='Air Conditioning', ng-model='other_features')
-                | Air Conditioning
+                li(ng-repeat='row in other_features')
+                  label
+                    input(type='checkbox', ng-model='row.selected')
+                    | {{row.value}}
           h3 Contact Deials
           .form-group
             label.control-label.col-sm-2(for='name') Name
@@ -101,26 +91,10 @@ block content
           .form-group
             .col-sm-offset-2.col-sm-10
               label.checkbox-inline
-                input(type='checkbox', value='ATM', ng-model='type_of_advertisement')
-                | ATM
-              label.checkbox-inline
-                input(type='checkbox', value='Mobile/Communication Tower', ng-model='type_of_advertisement')
-                | Mobile/Communication Tower
-              label.checkbox-inline
-                input(type='checkbox', value='Banner/Poster', ng-model='type_of_advertisement')
-                | Banner/Poster
-              label.checkbox-inline
-                input(type='checkbox', value='Hoarding Board', ng-model='type_of_advertisement')
-                | Hoarding Board
-              label.checkbox-inline
-                input(type='checkbox', value='Stalls', ng-model='type_of_advertisement')
-                | Stalls
-              label.checkbox-inline
-                input(type='checkbox', value='Digital Offline Marketing', ng-model='type_of_advertisement')
-                | Digital Offline Marketing
-              label.checkbox-inline
-                input(type='checkbox', value='Area for Product Display', ng-model='type_of_advertisement')
-                | Area for Product Display
+                li(ng-repeat='row in type_of_advertisement')
+                  label
+                    input(type='checkbox', ng-model='row.selected')
+                    | {{row.value}}
           .form-group
             .col-sm-offset-2.col-sm-10
               button.btn.btn-default(type='submit') Submit
