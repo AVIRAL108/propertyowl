@@ -26,6 +26,15 @@ exports.submitProperty = function(req, res, models){
     api_routes.submitProperty(req, models, callback);
 };
 
+exports.registerUser = function(req, res, models){
+    res.header("Cache-Control", "no-cache, no-store, must-revalidate");
+
+    var callback = function(err, response) {
+        exports._responseCallback(err, response, res);
+    }
+    api_routes.registerUser(req, models, callback);
+};
+
 exports.getAllProperties = function(req, res, models){
     res.header("Cache-Control", "no-cache, no-store, must-revalidate");
 

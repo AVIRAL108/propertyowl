@@ -3,7 +3,8 @@ var router = express.Router();
 var C = require('../constants');
 var mongoose = require('mongoose');
 console.log("Environment is : "+process.env.NODE_ENV);
-
+var passport = require('passport');
+passport.authenticationMiddleware = require('../authentication/middleware');
 var controller_routes = require('../api_routes/controller');
 
 
@@ -22,12 +23,23 @@ BaseModel.setMongooseConnection(mongooseConnection);
 var models = require('../models');
 
 /* GET users listing. */
-router.post('/submit-property', function(req, res, next) {
+router.post('/submit-property', passport.authenticationMiddleware(), function(req, res, next) {
   	controller_routes.submitProperty(req, res, models);
 });
+
+router.post('/register', function(req, res, next) {
+  	controller_routes.registerUser(req, res, models);
+});
+
+router.post('/login-register', passport.authenticate('local', {
+    successRedirect: '/submit-property',
+    failureRedirect: '/login-register',
+    failureFlash : true
+  }));
 
 router.get('/get-all-property', function(req, res, next) {
   	controller_routes.getAllProperties(req, res, models);
 });
+
 
 module.exports = router;
