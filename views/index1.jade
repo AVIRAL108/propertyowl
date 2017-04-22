@@ -1,0 +1,549 @@
+doctype html
+html
+  head
+    //
+      Basic Page Needs
+      ==================================================
+    title Findeo
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    //
+      CSS
+      ==================================================
+    link(rel='stylesheet', href='css/style.css')
+    link#colors(rel='stylesheet', href='css/colors/main.css')
+  body
+    // Wrapper
+    #wrapper
+      //
+        Header Container
+        ==================================================
+      header#header-container
+        // Topbar
+        #top-bar
+          .container
+            // Left Side Content
+            .left-side
+              // Top bar
+              ul.top-bar-menu
+                li
+                  i.fa.fa-phone
+                  |  (123) 123-456
+                li
+                  i.fa.fa-envelope
+                  a(href='#')
+                    span.__cf_email__(data-cfemail='b4dbd2d2ddd7d1f4d1ccd5d9c4d8d19ad7dbd9') [email protected]
+                    script(data-cfhash='f9e31', type='text/javascript').
+                      /* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */
+                li
+                  .top-bar-dropdown
+                    span Dropdown Menu
+                    ul.options
+                      li
+                        .arrow
+                      li
+                        a(href='#') Nice First Link
+                      li
+                        a(href='#') Second Link With Long Title
+                      li
+                        a(href='#') Third Link
+            // Left Side Content / End
+            // Left Side Content
+            .right-side
+              // Social Icons
+              ul.social-icons
+                li
+                  a.facebook(href='#')
+                    i.icon-facebook
+                li
+                  a.twitter(href='#')
+                    i.icon-twitter
+                li
+                  a.gplus(href='#')
+                    i.icon-gplus
+                li
+                  a.pinterest(href='#')
+                    i.icon-pinterest
+            // Left Side Content / End
+        .clearfix
+        // Topbar / End
+        // Header
+        #header
+          .container
+            // Left Side Content
+            .left-side
+              // Logo
+              #logo
+                a(href='index.html')
+                  img(src='images/logo.png', alt='')
+              // Mobile Navigation
+              .menu-responsive
+                i.fa.fa-reorder.menu-trigger
+              // Main Navigation
+              nav#navigation.style-1
+                ul#responsive
+                  li
+                    a(href='#') Home
+                    ul
+                      li
+                        a(href='index.html') Home 1
+                      li
+                        a(href='index-2.html') Home 2
+                      li
+                        a(href='index-3.html') Home 3
+                      li
+                        a(href='index-4.html') Home 4
+                  li
+                    a(href='#') Listings
+                    ul
+                      li
+                        a(href='#') List Layout
+                        ul
+                          li
+                            a(href='listings-list-with-sidebar.html') With Sidebar
+                          li
+                            a(href='listings-list-with-map.html') With Map
+                          li
+                            a(href='listings-list-full-width.html') Full Width
+                      li
+                        a(href='#') Grid Layout
+                        ul
+                          li
+                            a(href='listings-grid-standard-with-sidebar.html') Standard With Sidebar
+                          li
+                            a(href='listings-grid-compact-with-sidebar.html') Compact With Sidebar
+                          li
+                            a(href='listings-grid-with-map.html') With Map
+                          li
+                            a(href='listings-grid-full-width.html') Full Width
+                      li
+                        a(href='#') Half Map
+                        ul
+                          li
+                            a(href='listings-half-map-list.html') List Layout
+                          li
+                            a(href='listings-half-map-grid-standard.html') Grid Standard Layout
+                          li
+                            a(href='listings-half-map-grid-compact.html') Grid Compact Layout
+                  li
+                    a.current(href='#') Features
+                    ul
+                      li
+                        a(href='#') Single Properties
+                        ul
+                          li
+                            a(href='single-property-page-1.html') Property Style 1
+                          li
+                            a(href='single-property-page-2.html') Property Style 2
+                          li
+                            a(href='single-property-page-3.html') Property Style 3
+                      li
+                        a(href='#') Search Styles
+                        ul
+                          li
+                            a(href='index.html') Home Search 1
+                          li
+                            a(href='index-2.html') Home Search 2
+                          li
+                            a(href='index-3.html') Home Search 3
+                          li
+                            a(href='listings-list-full-width.html') Advanced Style
+                          li
+                            a(href='listings-list-with-sidebar.html') Sidebar Search
+                      li
+                        a(href='#') My Account
+                        ul
+                          li
+                            a(href='my-profile.html') My Profile
+                          li
+                            a(href='my-bookmarks.html') Bookmarked Listings
+                          li
+                            a(href='my-properties.html') My Properties
+                          li
+                            a(href='change-password.html') Change Password
+                      li
+                        a(href='#') Agents
+                        ul
+                          li
+                            a(href='agents-list.html') Agents List
+                          li
+                            a(href='agent-page.html') Agent Page
+                      li
+                        a(href='submit-property.html') Submit Property
+                  li
+                    a(href='#') Pages
+                    ul
+                      li
+                        a(href='blog.html') Blog
+                        ul
+                          li
+                            a(href='blog.html') Blog
+                          li
+                            a(href='blog-post.html') Blog Post
+                      li
+                        a(href='contact.html') Contact
+                      li
+                        a(href='elements.html') Elements
+                      li
+                        a(href='pricing-tables.html') Pricing Tables
+                      li
+                        a(href='typography.html') Typography
+                      li
+                        a(href='icons.html') Icons
+              .clearfix
+              // Main Navigation / End
+            // Left Side Content / End
+            // Right Side Content / End
+            .right-side
+              // Header Widget
+              .header-widget
+                a.sign-in(href='login-register.html')
+                  i.fa.fa-user
+                  |  Log In / Register
+                a.button.border(href='submit-property.html') Submit Property
+              // Header Widget / End
+            // Right Side Content / End
+        // Header / End
+      .clearfix
+      // Header Container / End
+      //
+        Titlebar
+        ==================================================
+      #titlebar.submit-page
+        .container
+          .row
+            .col-md-12
+              h2
+                i.fa.fa-plus-circle
+                |  Add Property
+      //
+        Content
+        ==================================================
+      .container
+        .row
+          // Submit Page
+          .col-md-12
+            .submit-page
+              .notification.notice.large.margin-bottom-55
+                h4 Don't Have an Account?
+                p
+                  | If you don't have an account you can create one by entering your email address in contact details section. A password will be automatically emailed to you.
+              // Section
+              h3 Basic Information
+              .submit-section
+                // Title
+                .form
+                  h5
+                    | Property Title 
+                    i.tip(data-tip-content='Type title that will also contains an unique feature of your property (e.g. renovated, air contidioned)')
+                  input.search-field(type='text', value='')
+                // Row
+                .row.with-forms
+                  // Status
+                  .col-md-6
+                    h5 Status
+                    select.chosen-select-no-single
+                      option(label='blank')
+                      option For Sale
+                      option For Rent
+                  // Type
+                  .col-md-6
+                    h5 Type
+                    select.chosen-select-no-single
+                      option(label='blank')
+                      option Apartment
+                      option House
+                      option Commercial
+                      option Garage
+                      option Lot
+                // Row / End
+                // Row
+                .row.with-forms
+                  // Price
+                  .col-md-4
+                    h5
+                      | Price 
+                      i.tip(data-tip-content='Type overall or monthly price if property is for rent')
+                    .select-input.disabled-first-option
+                      input(type='text', data-unit='USD')
+                  // Area
+                  .col-md-4
+                    h5 Area
+                    .select-input.disabled-first-option
+                      input(type='text', data-unit='Sq Ft')
+                  // Rooms
+                  .col-md-4
+                    h5 Rooms
+                    select.chosen-select-no-single
+                      option(label='blank')
+                      option 1
+                      option 2
+                      option 3
+                      option 4
+                      option 5
+                      option More than 5
+                // Row / End
+              // Section / End
+              // Section
+              h3 Gallery
+              .submit-section
+                form.dropzone(action='/file-upload')
+              // Section / End
+              // Section
+              h3 Location
+              .submit-section
+                // Row
+                .row.with-forms
+                  // Address
+                  .col-md-6
+                    h5 Address
+                    input(type='text')
+                  // City
+                  .col-md-6
+                    h5 City
+                    input(type='text')
+                  // City
+                  .col-md-6
+                    h5 State
+                    input(type='text')
+                  // Zip-Code
+                  .col-md-6
+                    h5 Zip-Code
+                    input(type='text')
+                // Row / End
+              // Section / End
+              // Section
+              h3 Detailed Information
+              .submit-section
+                // Description
+                .form
+                  h5 Description
+                  textarea#summary.WYSIWYG(name='summary', cols='40', rows='3', spellcheck='true')
+                // Row
+                .row.with-forms
+                  // Age of Home
+                  .col-md-4
+                    h5
+                      | Building Age 
+                      span (optional)
+                    select.chosen-select-no-single
+                      option(label='blank')
+                      option 0 - 1 Years
+                      option 0 - 5 Years
+                      option 0 - 10 Years
+                      option 0 - 20 Years
+                      option 0 - 50 Years
+                      option 50 + Years
+                  // Beds
+                  .col-md-4
+                    h5
+                      | Bedrooms 
+                      span (optional)
+                    select.chosen-select-no-single
+                      option(label='blank')
+                      option 1
+                      option 2
+                      option 3
+                      option 4
+                      option 5
+                  // Baths
+                  .col-md-4
+                    h5
+                      | Bathrooms 
+                      span (optional)
+                    select.chosen-select-no-single
+                      option(label='blank')
+                      option 1
+                      option 2
+                      option 3
+                      option 4
+                      option 5
+                // Row / End
+                // Checkboxes
+                h5.margin-top-30
+                  | Other Features 
+                  span (optional)
+                .checkboxes.in-row.margin-bottom-20
+                  input#check-2(type='checkbox', name='check')
+                  label(for='check-2') Air Conditioning
+                  input#check-3(type='checkbox', name='check')
+                  label(for='check-3') Swimming Pool
+                  input#check-4(type='checkbox', name='check')
+                  label(for='check-4') Central Heating
+                  input#check-5(type='checkbox', name='check')
+                  label(for='check-5') Laundry Room
+                  input#check-6(type='checkbox', name='check')
+                  label(for='check-6') Gym
+                  input#check-7(type='checkbox', name='check')
+                  label(for='check-7') Alarm
+                  input#check-8(type='checkbox', name='check')
+                  label(for='check-8') Window Covering
+                // Checkboxes / End
+              // Section / End
+              // Section
+              h3 Contact Details
+              .submit-section
+                // Row
+                .row.with-forms
+                  // Name
+                  .col-md-4
+                    h5 Name
+                    input(type='text')
+                  // Email
+                  .col-md-4
+                    h5 E-Mail
+                    input(type='text')
+                  // Name
+                  .col-md-4
+                    h5
+                      | Phone 
+                      span (optional)
+                    input(type='text')
+                // Row / End
+              // Section / End
+              .divider
+              a.button.preview.margin-top-5(href='#')
+                | Preview 
+                i.fa.fa-arrow-circle-right
+      //
+        Footer
+        ==================================================
+      .margin-top-55
+      #footer.sticky-footer
+        // Main
+        .container
+          .row
+            .col-md-5.col-sm-6
+              img.footer-logo(src='images/logo.png', alt='')
+              br
+              br
+              p
+                | Morbi convallis bibendum urna ut viverra. Maecenas quis consequat libero, a feugiat eros. Nunc ut lacinia tortor morbi ultricies laoreet ullamcorper phasellus semper.
+            .col-md-4.col-sm-6
+              h4 Helpful Links
+              ul.footer-links
+                li
+                  a(href='#') Login
+                li
+                  a(href='#') Sign Up
+                li
+                  a(href='#') My Account
+                li
+                  a(href='#') Add Property
+                li
+                  a(href='#') Pricing
+                li
+                  a(href='#') Privacy Policy
+              ul.footer-links
+                li
+                  a(href='#') FAQ
+                li
+                  a(href='#') Blog
+                li
+                  a(href='#') Our Agents
+                li
+                  a(href='#') How It Works
+                li
+                  a(href='#') Contact
+              .clearfix
+            .col-md-3.col-sm-12
+              h4 Contact Us
+              .text-widget
+                span 12345 Little Lonsdale St, Melbourne
+                br
+                | 					Phone: 
+                span (123) 123-456 
+                br
+                | 					E-Mail:
+                span
+                  a(href='#')
+                    span.__cf_email__(data-cfemail='cea1a8a8a7adab8eabb6afa3bea2abe0ada1a3') [email protected]
+                    script(data-cfhash='f9e31', type='text/javascript').
+                      /* <![CDATA[ */!function(t,e,r,n,c,a,p){try{t=document.currentScript||function(){for(t=document.getElementsByTagName('script'),e=t.length;e--;)if(t[e].getAttribute('data-cfhash'))return t[e]}();if(t&&(c=t.previousSibling)){p=t.parentNode;if(a=c.getAttribute('data-cfemail')){for(e='',r='0x'+a.substr(0,2)|0,n=2;a.length-n;n+=2)e+='%'+('0'+('0x'+a.substr(n,2)^r).toString(16)).slice(-2);p.replaceChild(document.createTextNode(decodeURIComponent(e)),c)}p.removeChild(t)}}catch(u){}}()/* ]]> */
+                br
+              ul.social-icons.margin-top-20
+                li
+                  a.facebook(href='#')
+                    i.icon-facebook
+                li
+                  a.twitter(href='#')
+                    i.icon-twitter
+                li
+                  a.gplus(href='#')
+                    i.icon-gplus
+                li
+                  a.vimeo(href='#')
+                    i.icon-vimeo
+          // Copyright
+          .row
+            .col-md-12
+              .copyrights © 2016 Findeo. All Rights Reserved.
+      // Footer / End
+      // Back To Top Button
+      #backtotop
+        a(href='#')
+      //
+        Scripts
+        ==================================================
+      script(type='text/javascript', src='scripts/jquery-2.2.0.min.js')
+      script(type='text/javascript', src='scripts/chosen.min.js')
+      script(type='text/javascript', src='scripts/magnific-popup.min.js')
+      script(type='text/javascript', src='scripts/owl.carousel.min.js')
+      script(type='text/javascript', src='scripts/rangeSlider.js')
+      script(type='text/javascript', src='scripts/sticky-kit.min.js')
+      script(type='text/javascript', src='scripts/slick.min.js')
+      script(type='text/javascript', src='scripts/masonry.min.js')
+      script(type='text/javascript', src='scripts/jquery.jpanelmenu.js')
+      script(type='text/javascript', src='scripts/tooltips.min.js')
+      script(type='text/javascript', src='scripts/custom.js')
+      // DropZone | Documentation: http://dropzonejs.com
+      script(type='text/javascript', src='scripts/dropzone.js')
+      script.
+        $(".dropzone").dropzone({
+        dictDefaultMessage: "<i class='sl sl-icon-plus'></i> Click here or drop files to upload",
+        });
+      //
+        Style Switcher
+        ==================================================
+      script(src='scripts/switcher.js')
+      #style-switcher
+        h2
+          | Color Switcher 
+          a(href='#')
+            i.sl.sl-icon-settings
+        div
+          ul#color1.colors
+            li
+              a.blue(href='#', title='Blue')
+            li
+              a.green(href='#', title='Green')
+            li
+              a.orange(href='#', title='Orange')
+            li
+              a.navy(href='#', title='Navy')
+            li
+              a.yellow(href='#', title='Yellow')
+            li
+              a.peach(href='#', title='Peach')
+            li
+              a.beige(href='#', title='Beige')
+            li
+              a.purple(href='#', title='Purple')
+            li
+              a.celadon(href='#', title='Celadon')
+            li
+              a.pink(href='#', title='Pink')
+            li
+              a.red(href='#', title='Red')
+            li
+              a.brown(href='#', title='Brown')
+            li
+              a.cherry(href='#', title='Cherry')
+            li
+              a.cyan(href='#', title='Cyan')
+            li
+              a.gray(href='#', title='Gray')
+            li
+              a.olive(href='#', title='Olive')
+      // Style Switcher / End
+    // Wrapper / End

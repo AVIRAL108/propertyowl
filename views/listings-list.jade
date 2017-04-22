@@ -29,14 +29,42 @@ block content
                     i.fa.fa-th-list
                   a.grid(href='#')
                     i.fa.fa-th-large
-            .listings-container.list-layout
+            .listings-container.list-layout(ng-app='myApp', ng-controller='customersCtrl')
               // Listing Item
-              .listing-item(ng-app='myApp', ng-controller='customersCtrl')
-                ul
-                  li(ng-repeat='x in myData | filter : test')
-                     {{x.price+" "+ x.price_type}}
-                     {{x.area+" "+x.area_unit}}
-                     {{x.full_address.city+  "  "+ x.full_address.state}}
+              .listing-item(ng-repeat='x in myData | filter : test')
+                 a.listing-img-container(href='single-property-page-1.html')
+                   .listing-badges
+                     span.featured Featured
+                     span For Avertisement
+                   .listing-img-content  
+                     span.listing-price
+                         {{x.price | currency:"&#8377;"}} 
+                         {{x.price_type}}
+                        
+                         
+                     span.like-icon.tooltip
+                  .listing-carousel
+                    div
+                      img(src='images/listing-01.jpg', alt='')
+                   .listing-content
+                     .listing-title 
+                       h4
+                         a(href='#')    {{x.full_address.city+ " " + x.full_address.state}}
+                       a.listing-address.popup-gmaps(href='/property-info')
+                         i.fa.fa-map-marker
+                         |                 {{x.full_address.google_location}}
+                       a.details.button.border(href='/property-info') Details
+                     ul.listing-details 
+                       li {{x.area+" "+x.area_unit}}
+                       li(ng-repeat='item in x.type_of_advertisement')
+                         {{item}}  
+                     .listing-footer
+                       a(href='#')
+                         i.fa.fa-user
+                         |  {{x.contact_details.name}}
+                         span
+                           i.fa.fa-calendar-o
+                           |  {{x.date_add | date}}
               script(src='/javascripts/listing_angular.js')
           
             // Pagination

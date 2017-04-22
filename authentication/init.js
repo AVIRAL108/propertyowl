@@ -1,22 +1,48 @@
-var login = require('./login');
-var register = require('./register');
-var User = require('../models/user');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 
-module.exports = function(passport){
+const authenticationMiddleware = require('./middleware')
+var models = require('../models');
 
-  // Passport needs to be able to serialize and deserialize users to support persistent login sessions
-    passport.serializeUser(function(user, done) {
-        console.log('serializing user: ');console.log(user);
-        done(null, user._id);
-    });
 
-    passport.deserializeUser(function(id, done) {
-        User.findById(id, function(err, user) {
-            console.log('deserializing user:',user);
-            done(err, user);
-        });
-    });
+function findUser (username, callback) {
+  var UserModel = models.User;
+  UserModel.findOne({email : username}, function(err, user){
+    if(err) return callback(null);
+    if(user){
+      return callback(null, user);
+    } else{
+      return callback(null);
+    }
+  });
+}
 
-    // Setting up Passport Strategies for Login and SignUp/Registration
-    login(passport);
-    register(passport);
+passport.serializeUser(function (user, cb) {
+  cb(null, user.email)
+})
+
+passport.deserializeUser(function (username, cb) {
+  findUser(username, cb)
+})
+
+function initPassport () {
+   passport.authenticationMiddleware = authenticationMiddleware;
+  passport.use(new LocalStrategy(
+    function(username, password, done) {
+      findUser(username, function (err, user) {
+        if (err) {
+          return done(err)
+        }
+        if (!user) {
+          return done(null, false)
+        }
+        if (password !== user.password  ) {
+          return done(null, false)
+        }
+        return done(null, user)
+      })
+    }
+  ));
+}
+
+module.exports = initPassport

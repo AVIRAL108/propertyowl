@@ -2,7 +2,7 @@ extends layout
 
 block content
  .container(ng-app='mypropertysubmit', ng-controller='submitCtrl')
-        form.form-horizontal(ng-submit='submit_form()', action='/listings-list', method='post')
+        form.form-horizontal(ng-submit='submit_form()', action='/api/', method='post')
           h3 Basic Information
           hr
           .form-group
@@ -55,11 +55,15 @@ block content
           .form-group
             label.control-label.col-sm-2(for='zipcode') Zipcode
             .col-sm-10
-              input#zipcode.form-control(type='text', ng-model='full_address.zipcode', required='required')
+              input#zipcode.form-control(type='text', ng-model='full_address.zip_code', required='required')
           .form-group
             label.control-label.col-sm-2(for='g_l') Google Location
             .col-sm-10
-              input#g_l.form-control(type='text', ng-model='full_address.googlelocation', required='required')
+              input#g_l.form-control(type='text', ng-model='full_address.google_location', required='required')
+          h3 Uplaods Photos
+          hr
+          form.dropzone 
+
           h3 Detailed Information
           hr
           .form-group
@@ -99,3 +103,4 @@ block content
             .col-sm-offset-2.col-sm-10
               button.btn.btn-default(type='submit') Submit
       script(src='/javascripts/listing_angular_post.js')
+   

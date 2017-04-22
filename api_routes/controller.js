@@ -2,17 +2,21 @@
 
 var api_routes = require('./api');
 
-exports._responseCallback = function(err, response, res) {
+exports._responseCallback = function(err, response, res, redirectUrl) {
     if (err != null) {
         res.status(err.code).end(err.message);
     } else{
-       	var responseObj = {};
-        responseObj.status = 'success';
-        responseObj.data = {};
-        if (response) {
-            responseObj.data = response;
+        if(redirectUrl){
+            res.redirect(redirectUrl);
+        } else {
+            var responseObj = {};
+            responseObj.status = 'success';
+            responseObj.data = {};
+            if (response) {
+                responseObj.data = response;
+            }
+            res.json(responseObj);  
         }
-        res.json(responseObj);  
     }
 };
 
@@ -29,8 +33,8 @@ exports.submitProperty = function(req, res, models){
 exports.registerUser = function(req, res, models){
     res.header("Cache-Control", "no-cache, no-store, must-revalidate");
 
-    var callback = function(err, response) {
-        exports._responseCallback(err, response, res);
+    var callback = function(err, response, redirectUrl) {
+        exports._responseCallback(err, response, res,redirectUrl);
     }
     api_routes.registerUser(req, models, callback);
 };

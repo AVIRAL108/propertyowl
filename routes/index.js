@@ -34,4 +34,10 @@ router.get('/agents-list', passport.authenticationMiddleware(), function(req, re
 router.get('/agents-page', passport.authenticationMiddleware(), function(req, res) {
   res.render('agent-page', { title:'Check out the profile of agents who can rent out your property on advertisement'});
 });
+router.get('/property-info', function(req, res) {
+  res.render('property-info', { title:'Check out the details of property on which you could advertize'});
+});
+router.get('/index1', function(req, res) {
+  res.render('index1', { title:'Check out the details of property on which you could advertize'});
+});
 module.exports = router;

@@ -106,6 +106,7 @@ $scope.other_features = [
 		var res = $http.post('/api/submit-property', dataObj);
 		res.success(function(data, status, headers, config) {
 			$scope.message = data;
+			alert("Data is sucessfully Saved")
 
 		});
 		res.error(function(data, status, headers, config) {

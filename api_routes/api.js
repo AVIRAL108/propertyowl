@@ -18,18 +18,18 @@ exports.submitProperty = function(req, models, callback){
 };
 
 exports.registerUser = function(req, models, callback){
-	var reqdata = req.body.data;
 	var UserModel = models.User;
 	var userModel = new UserModel();
-	for(var i in reqdata){
-		userModel[i] = reqdata[i];
-	}
+	userModel.password = req.body.password;
+	userModel.last_name = req.body.last_name;
+	userModel.first_name = req.body.first_name;
+	userModel.email = req.body.email;
 	userModel.save(function(err, response){
 		if(err){
 			console.log(err);
             callback({code:500, message:"Internal Error: Couldn't save Property"});
 		} else {
-			callback(null, "User has been saved successfully");
+			callback(null, {}, '/submit-property');
 		}
 	});
 };
