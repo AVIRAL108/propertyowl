@@ -1,9 +1,13 @@
+require('./passport.js')(passport)
 var LocalStrategy   = require('passport-local').Strategy;
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
 var User = require('../models/user');
 var bCrypt = require('bcrypt-nodejs');
+var C = require('../constants');
 
 module.exports = function(passport){
-
+/*
 	passport.use('login', new LocalStrategy({
             passReqToCallback : true
         },
@@ -31,7 +35,33 @@ module.exports = function(passport){
             );
 
         })
-    );
+    );*/
+
+    passport.use('google', new GoogleStrategy({
+        clientID        : C.config.googleAuth.clientID,
+        clientSecret    : C.config.googleAuth.clientSecret,
+        callbackURL     : C.config.googleAuth.callbackURL,
+    }, function(token, refreshToken, profile, done){
+        process.nextTick(function(){
+           User.findOne({'google.id' : profile.id}, function(err, user){
+                if(err) return done(err);
+                if(user){
+                    return done(null, user);
+                } else {
+                    var newUser = new User();
+                    newUser.google.id = profile.id;
+                    newUser.google.token = token;
+                    newUser.google.name = profile.displayName;
+                    newUser.google.email = profile.emails[0].value;
+
+                    newUser.save(function(err){
+                        if(err) throw err;
+                        return done(null, newUser);
+                    });
+                }
+           }); 
+        });
+    }));
 
 
     var isValidPassword = function(user, password){

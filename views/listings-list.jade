@@ -6,29 +6,11 @@ block content
         .row.sticky-wrapper
           .col-md-8
             // Main Search Input
-            .main-search-input.margin-bottom-35
-              input.ico-01(type='text', placeholder='Enter address e.g. street, city and state or zip', value='')
-              button.button Search
-            // Sorting / Layout Switcher
-            .row.margin-bottom-15
-              .col-md-6
-                // Sort by
-                .sort-by
-                  label Sort by:
-                  .sort-by-select
-                    select.chosen-select-no-single(data-placeholder='Default order')
-                      option Default Order
-                      option Price Low to High
-                      option Price High to Low
-                      option Newest Properties
-                      option Oldest Properties
-              .col-md-6
-                // Layout Switcher
-                .layout-switcher
-                  a.list(href='#')
-                    i.fa.fa-th-list
-                  a.grid(href='#')
-                    i.fa.fa-th-large
+            div(np-app='SearchingApp' ng-controller='searchCtrl')
+              form.main-search-input.margin-bottom-35(ng-submit='submitForm()')  
+                input.ico-01(type='text', placeholder='Enter address e.g. street, city and state or zip', value='' ng-model='entry')
+                button.button Search
+              script(src='/javascripts/searchpost.js')      
             .listings-container.list-layout(ng-app='myApp', ng-controller='customersCtrl')
               // Listing Item
               .listing-item(ng-repeat='x in myData | filter : test')

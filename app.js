@@ -12,6 +12,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var users = require('./routes/aviral');
 var api = require('./routes/api');
+var auth = require('./routes/auth');
 var app = express();
 
 // view engine setup
@@ -42,9 +43,9 @@ app.use(session({
   saveUninitialized: false
 }));
 
-app.use(passport.initialize());
-app.use(passport.session());
-passport.authenticationMiddleware = require('./authentication/middleware');
+/*app.use(passport.initialize());
+app.use(passport.session());*/
+//passport.authenticationMiddleware = require('./authentication/middleware');
 
 require('./authentication').init(app)
 
@@ -61,6 +62,7 @@ passport.authenticationMiddleware = require('./authentication/middleware');
 app.use('/', routes);
 app.use('/users', users);
 app.use('/api', api);
+app.use('/auth', auth);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {

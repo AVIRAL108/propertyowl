@@ -12,14 +12,14 @@ block content
                 option Open
                 option Closed
           .form-group
-            label.control-label.col-sm-2(for='o_t') Ownership Type
+            label.control-label.col-sm-2(for='o_t') Ownership Type*
             .col-sm-10
               select#o_t.form-control(ng-model='ownership_type', required='required')
                 option Sole Owner
                 option Partnership
                 option Agent
           .form-group
-            label.control-label.col-sm-2(for='price') Price
+            label.control-label.col-sm-2(for='price') Price*
             .col-sm-10
               input#price.form-control(type='text', ng-model='price', required='required')
           .form-group
@@ -29,11 +29,11 @@ block content
                 option Daily
                 option Weekly
           .form-group
-            label.control-label.col-sm-2(for='area') Area
+            label.control-label.col-sm-2(for='area') Area*
             .col-sm-10
               input#area.form-control(type='text', ng-model='area', required='required')
           .form-group
-            label.control-label.col-sm-2(for='area_unit') Area Unit
+            label.control-label.col-sm-2(for='area_unit') Area Unit*
             .col-sm-10
               select#area_unit.form-control(ng-model='area_unit', required='required')
                 option Sq. m.
@@ -59,10 +59,7 @@ block content
           .form-group
             label.control-label.col-sm-2(for='g_l') Google Location
             .col-sm-10
-              input#g_l.form-control(type='text', ng-model='full_address.google_location', required='required')
-          h3 Uplaods Photos
-          hr
-          form.dropzone 
+              input#g_l.form-control(type='text', ng-model='full_address.google_location', required='required') 
 
           h3 Detailed Information
           hr
@@ -101,6 +98,6 @@ block content
                     | {{row.value}}
           .form-group
             .col-sm-offset-2.col-sm-10
-              button.btn.btn-default(type='submit') Submit
+              button.btn.btn-danger(type='submit') Submit
       script(src='/javascripts/listing_angular_post.js')
    
